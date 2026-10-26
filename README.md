@@ -3,7 +3,13 @@
 A shelf of book covers. Tap a cover to read what the book taught (one-page summary, chapter notes,
 practices, quotes), or press **Listen** to hear it read aloud.
 
-No build step, no API, no model. Open `index.html`, or host the folder on GitHub Pages.
+An installable app (PWA): add it to your home screen and it opens full-screen and works offline.
+No build step, no API, no model.
+
+## Install
+Host the folder over HTTPS (for example GitHub Pages), open it on your phone, then
+**Add to Home Screen** (iPhone: Share menu; Android Chrome: menu, Install app).
+On a computer, Chrome and Edge show an install icon in the address bar.
 
 ## Voice reader
 Uses the browser's built-in speech (`speechSynthesis`), so it runs offline on your device. The sound
