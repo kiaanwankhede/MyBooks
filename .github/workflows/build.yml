@@ -1,0 +1,49 @@
+name: Build APK
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Build the APK
+        run: ./gradlew :app:assembleRelease --stacktrace
+
+      - name: Name the APK
+        run: cp app/build/outputs/apk/release/app-release.apk mybooks.apk
+
+      # A release gives a plain .apk link that is easy to open on the phone:
+      # https://github.com/<owner>/<repo>/releases/latest
+      - name: Publish release
+        if: github.event_name != 'pull_request'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: Book Learnings build ${{ github.run_number }}
+          target_commitish: ${{ github.sha }}
+          make_latest: true
+          files: mybooks.apk
+          body: |
+            Install: download mybooks.apk below on your phone and open it.
+            Built from ${{ github.sha }}.
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mybooks-apk
+          path: mybooks.apk
+          if-no-files-found: error

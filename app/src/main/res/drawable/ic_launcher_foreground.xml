@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A tangle of lines that resolves into one straight line, inside the 108dp adaptive-icon canvas. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:pathData="M28,46 C36,28 46,66 56,46 C64,30 74,34 76,52 C78,66 58,72 50,60 C44,52 36,62 44,70"
+        android:strokeColor="#FFD166"
+        android:strokeWidth="3"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M30,78 L78,78"
+        android:strokeColor="#FFD166"
+        android:strokeWidth="4.5"
+        android:strokeLineCap="round" />
+</vector>
