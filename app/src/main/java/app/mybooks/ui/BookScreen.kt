@@ -175,7 +175,7 @@ private fun ReaderBar(reader: Reader, blocks: List<Block>) {
             Slider(
                 value = speed,
                 onValueChange = { speed = it },
-                onValueChangeFinished = { reader.setRate(speed) },
+                onValueChangeFinished = { reader.changeSpeed(speed) },
                 valueRange = 0.7f..1.4f,
                 modifier = Modifier.weight(1f).padding(horizontal = 8.dp),
             )

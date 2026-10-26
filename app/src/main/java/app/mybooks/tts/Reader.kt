@@ -149,7 +149,7 @@ class Reader(context: Context, private val prefs: Prefs) {
         current = -1
     }
 
-    fun setRate(value: Float) {
+    fun changeSpeed(value: Float) {
         rate = value
         prefs.rate = value
         engine?.setSpeechRate(value)
